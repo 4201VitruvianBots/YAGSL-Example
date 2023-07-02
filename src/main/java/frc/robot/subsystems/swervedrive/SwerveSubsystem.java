@@ -35,7 +35,7 @@ public class SwerveSubsystem extends SubsystemBase
   /**
    * Swerve drive object.
    */
-  private final SwerveDrive       swerveDrive;
+  private SwerveDrive       swerveDrive;
   /**
    * The auto builder for PathPlanner, there can only ever be one created so we save it just incase we generate multiple
    * paths with events.
@@ -54,9 +54,10 @@ public class SwerveSubsystem extends SubsystemBase
     try
     {
       swerveDrive = new SwerveParser(directory).createSwerveDrive();
+  
     } catch (Exception e)
     {
-      throw new RuntimeException(e);
+      //throw new RuntimeException(e);
     }
   }
 
