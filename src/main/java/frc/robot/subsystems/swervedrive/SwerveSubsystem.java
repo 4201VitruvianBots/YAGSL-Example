@@ -57,7 +57,8 @@ public class SwerveSubsystem extends SubsystemBase
   
     } catch (Exception e)
     {
-      //throw new RuntimeException(e);
+      System.out.println("ERROR: COULD NOT PARSE YAGSL CONFIG FILE");
+      throw new RuntimeException(e);
     }
   }
 
