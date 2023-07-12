@@ -17,8 +17,7 @@
           "keyRate": 0.009999999776482582
         },
         {
-          "decKey": 75,
-          "incKey": 76
+          "decKey": 75
         }
       ],
       "axisCount": 5,
@@ -46,7 +45,8 @@
     {
       "axisConfig": [
         {
-          "decKey": 74
+          "decKey": 74,
+          "incKey": 76
         },
         {
           "decKey": 73
@@ -95,7 +95,9 @@
     {
       "guid": "Keyboard0"
     },
-    {},
+    {
+      "guid": "Keyboard1"
+    },
     {
       "useGamepad": true
     }
