@@ -19,6 +19,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.swervedrive.auto.Autos;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDrive;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteFieldDrive;
+import frc.robot.commands.swervedrive.drivebase.SetSwerveDrive;
 import frc.robot.commands.swervedrive.drivebase.TeleopDrive;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -77,13 +78,19 @@ public class RobotContainer
                                                     () -> MathUtil.applyDeadband(driverXbox.getLeftX(),
                                                                                  OperatorConstants.LEFT_X_DEADBAND),
                                                     () -> driverXbox.getRawAxis(2), () -> true, false, true);
-    TeleopDrive closedFieldRel = new TeleopDrive(
-        drivebase,
-        () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(1), OperatorConstants.LEFT_Y_DEADBAND),
-        () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
-        () -> -rightJoystick.getRawAxis(0), () -> true, false, true);
+    // TeleopDrive closedFieldRel = new TeleopDrive(
+    //     drivebase,
+    //     () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(1), OperatorConstants.LEFT_Y_DEADBAND),
+    //     () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
+    //     () -> -rightJoystick.getRawAxis(0), 
+    //     () -> true, false, true);
 
-    drivebase.setDefaultCommand(closedFieldRel);
+    var driveCommand = new SetSwerveDrive(drivebase, 
+    () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(1), OperatorConstants.LEFT_Y_DEADBAND),
+        () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
+       () -> -rightJoystick.getRawAxis(0) 
+       );
+    drivebase.setDefaultCommand(driveCommand);
   }
 
   /**

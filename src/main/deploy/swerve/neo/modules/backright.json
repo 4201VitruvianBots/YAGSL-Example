@@ -6,12 +6,12 @@
   "absoluteEncoderOffset": 31.904,
   "drive": {
     "type": "falcon",
-    "id": 25,
+    "id": 26,
     "canbus": "RIO"
   },
   "angle": {
     "type": "falcon",
-    "id": 26,
+    "id": 27,
     "canbus": "RIO"
   },
   "encoder": {
@@ -21,6 +21,6 @@
   },
   "inverted": {
     "drive": false,
-    "angle": false
+    "angle": true
   }
 }
