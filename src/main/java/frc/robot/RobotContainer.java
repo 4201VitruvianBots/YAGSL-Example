@@ -86,8 +86,8 @@ public class RobotContainer
     //     () -> true, false, true);
 
     var driveCommand = new SetSwerveDrive(drivebase, 
-    () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(1), OperatorConstants.LEFT_Y_DEADBAND),
-        () -> MathUtil.applyDeadband(leftJoystick.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
+    () -> MathUtil.applyDeadband(-leftJoystick.getRawAxis(1), OperatorConstants.LEFT_Y_DEADBAND),
+        () -> MathUtil.applyDeadband(-leftJoystick.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
        () -> -rightJoystick.getRawAxis(0) 
        );
     drivebase.setDefaultCommand(driveCommand);
